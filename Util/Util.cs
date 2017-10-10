@@ -16,10 +16,15 @@ namespace Utilities {
 
         public class UtilBuilder {
             private string _linkTemplate;
+            public static UtilBuilder New {
+                get { return new UtilBuilder(); }
+            }
+
             public UtilBuilder UseGetLink(string linkTemplate) {
                 _linkTemplate = linkTemplate;
                 return this;
             }
+
             public static implicit operator Util(UtilBuilder utilBuilder) {
                 return new Util(utilBuilder._linkTemplate);
             }
